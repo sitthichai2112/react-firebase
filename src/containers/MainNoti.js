@@ -9,6 +9,11 @@ class MainNotiFication extends React.Component {
             <div>
                 <h1>Notification</h1>
                 <button onClick={() => this.props.createProject('123123')}>ตกลง</button>
+
+                <ul>
+                    {this.props.projects && this.props.projects.map((item, idx) => <li key={idx}>{item.title}</li>)}
+                </ul>
+
             </div>
         )
     }
@@ -21,10 +26,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
-
     return {
-
+        projects: state.firestore.ordered.projects
     }
 }
 
