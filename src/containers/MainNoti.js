@@ -30,7 +30,7 @@ const mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    // firestoreConnect([{
-    //     collection: 'projects'
-    // }])
+    firestoreConnect([{
+        collection: 'projects'
+    }])
 )(MainNotiFication);
