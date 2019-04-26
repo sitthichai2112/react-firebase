@@ -8,8 +8,9 @@ import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import ProjectDetail from "./pages/projects/ProjectDetail";
+import { Switch } from 'react-router'
 
 
 import firebase from 'firebase/app'
@@ -32,7 +33,10 @@ render(
       dispatch={store.dispatch}
       createFirestoreInstance={createFirestoreInstance}>
       <Router>
-        <Route exact path="/" component={App} />
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route path="/project-detail/:projectId" component={ProjectDetail} />
+        </Switch>
       </Router>
     </ReactReduxFirebaseProvider>
   </Provider>,

@@ -1,5 +1,5 @@
 import React from 'react'
-import MainNotification from '../containers/MainNoti';
+import MainNotification from '../pages/projects';
 const App = () => (
   <div className="container">
     <MainNotification />
