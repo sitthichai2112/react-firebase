@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import { reduxFirestore, getFirestore, createFirestoreInstance } from 'redux-firestore';
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 
@@ -30,7 +31,9 @@ render(
       config={fbConfig}
       dispatch={store.dispatch}
       createFirestoreInstance={createFirestoreInstance}>
-      <App />
+      <Router>
+        <Route exact path="/" component={App} />
+      </Router>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')

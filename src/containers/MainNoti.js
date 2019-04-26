@@ -6,14 +6,18 @@ import { compose } from 'redux';
 class MainNotiFication extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Notification</h1>
-                <button onClick={() => this.props.createProject('123123')}>ตกลง</button>
+            <div className="row">
+                <div className="col-6">
+                    <h3>Notification</h3>
+                    <button onClick={() => this.props.createProject('123123')}>ตกลง</button>
+                    <ul>
+                        {this.props.projects && this.props.projects.map((item, idx) => <li key={idx}>{item.title}</li>)}
+                    </ul>
+                </div>
 
-                <ul>
-                    {this.props.projects && this.props.projects.map((item, idx) => <li key={idx}>{item.title}</li>)}
-                </ul>
-
+                <div className="col-6">
+                    <h3>Notification</h3>
+                </div>
             </div>
         )
     }
